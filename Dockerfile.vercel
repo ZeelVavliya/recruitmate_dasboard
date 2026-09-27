@@ -1,0 +1,8 @@
+# Vercel detects this file and routes all traffic to the container (Container Images, beta).
+FROM python:3.12-slim
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+COPY . .
+# Vercel sends traffic to $PORT: 80 unless PORT is set in the project's environment variables.
+CMD ["sh", "-c", "exec streamlit run app.py --server.port=${PORT:-80} --server.address=0.0.0.0"]

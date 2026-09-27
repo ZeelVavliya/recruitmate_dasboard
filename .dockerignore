@@ -1,0 +1,7 @@
+__pycache__/
+.ipynb_checkpoints/
+*.ipynb
+dashboard.html
+data/*.csv
+data/public/so2019.csv
+swe_*.py
